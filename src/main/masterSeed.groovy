@@ -5,7 +5,7 @@ def defaultPathBase = new File( "." ).getCanonicalPath()
 
 void createProjectSeed(projectName) {
     println "create project seed: $projectName"
-    Job("seed.${projectName}") {
+    job("seed.${projectName}") {
         parameters {
             choiceParam("platform", ['android', 'ios'])
         }
