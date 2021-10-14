@@ -23,8 +23,19 @@ void createProjectSeed(projectName) {
 def loadConfig = {
     filePath -> 
         println "config file path is $filePath"
-        def file = new File(defaultPathBase + "/" + filePath)
-        def data = new JsonSlurper().parseText(file.text)
+        // def file = new File(defaultPathBase + "/" + filePath)
+        def data = new JsonSlurper().parseText("""
+        {
+            "projects": [
+                {
+                    "name": "plant"
+                },
+                {
+                    "name": "zombie"
+                }
+            ]
+        }
+        """)
         println data
         data.projects
 }
