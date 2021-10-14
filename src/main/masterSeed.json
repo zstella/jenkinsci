@@ -1,0 +1,10 @@
+{
+    "projects": [
+        {
+            "name": "plant"
+        },
+        {
+            "name": "zombie"
+        }
+    ]
+}
