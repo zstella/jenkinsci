@@ -4,6 +4,7 @@ import groovy.json.JsonSlurper
 
 
 void createProjectSeed(projectName) {
+    println "create project seed: $projectName"
     Job("seed.${projectName}") {
         parameters {
             choiceParam("platform", ['android', 'ios'])
@@ -20,13 +21,12 @@ void createProjectSeed(projectName) {
 
 
 def loadConfig = {
-    filePath -> {
+    filePath -> 
         println "config file path is $filePath"
         def file = new File(filePath)
         def data = new JsonSlurper().parseText(file.text)
         println data
         data.projects
-    }
 }
 
 
