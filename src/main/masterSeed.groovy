@@ -1,7 +1,7 @@
 
 import groovy.json.JsonSlurper
 
-
+def defaultPathBase = new File( "." ).getCanonicalPath()
 
 void createProjectSeed(projectName) {
     println "create project seed: $projectName"
@@ -23,7 +23,7 @@ void createProjectSeed(projectName) {
 def loadConfig = {
     filePath -> 
         println "config file path is $filePath"
-        def file = new File(filePath)
+        def file = new File(defaultPathBase + "/" + filePath)
         def data = new JsonSlurper().parseText(file.text)
         println data
         data.projects
@@ -31,9 +31,9 @@ def loadConfig = {
 
 
 
-loadConfig("masterSeed.json").each {
+loadConfig("etc/masterSeed.json").each {
     println " --- $it --- "
-    createProjectSeed(it.Name)
+    createProjectSeed(it.name)
 }
 
 
