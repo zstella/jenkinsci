@@ -1,5 +1,7 @@
 
 import groovy.json.JsonSlurper
+import javaposse.jobdsl.dsl.Job
+
 
 def defaultPathBase = new File( "." ).getCanonicalPath()
 
